@@ -62,9 +62,9 @@
     set restorescreen
     set t_ti=[?1049h
     set t_te=[?1049l
-    set mouse=a
   " }}}
 
+  set mouse=a
   set ttyfast
   set laststatus=2
   set number
