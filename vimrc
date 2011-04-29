@@ -12,9 +12,12 @@
   set nobackup
   set nowritebackup
   set noswapfile
-  set undofile
-  set undodir=~/.vim/tmp
   set autochdir
+
+  if exists('+undofile')
+    set undofile
+    set undodir=~/.vim/tmp
+  endif
 
   set fileformats=unix,dos
   set fileformat=unix
@@ -69,7 +72,6 @@
   set laststatus=2
   set number
   set numberwidth=5
-  set relativenumber
   set ruler
   set cursorline
   set showcmd
@@ -83,6 +85,10 @@
   set diffopt+=context:3
   set statusline=%F%m%r%h%w\ [%{&ff}%(/%{&ft}%)]%=\ [%03.3b/0x%02.2B]\ [%04l,%04v]\ [%p%%\ of\ %L]
   execute 'set listchars=eol:'.nr2char(172).',trail:'.nr2char(183).',tab:'.nr2char(8227).'\ ,extends:'.nr2char(8250).',precedes:'.nr2char(8249).',nbsp:'.nr2char(171)
+
+  if exists('+relativenumber')
+    set relativenumber
+  endif
 
   " scrolling {{{
     set scrolloff=5
@@ -100,11 +106,14 @@
   set smartindent
   set nowrap
   set textwidth=72
-  set colorcolumn=80
   set formatoptions=croqwanlmB1
   set linebreak
   set nostartofline
   set comments=s1:/*,mb:*,ex:*/,f://,b:#,:%,:XCOMM,n:>,fb:-,b:\"
+
+  if exists('+colorcolumn')
+    set colorcolumn=80
+  endif
 
   " search {{{
     set ignorecase
