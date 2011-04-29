@@ -64,7 +64,7 @@
     set t_te=[?1049l
   " }}}
 
-  set mouse=a
+  set mouse=nv
   set ttyfast
   set laststatus=2
   set number
@@ -74,7 +74,7 @@
   set cursorline
   set showcmd
   set showmode
-  set virtualedit=all
+  set virtualedit=block
   set confirm
   set updatetime=1500
   set history=1000
