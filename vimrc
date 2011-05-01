@@ -106,7 +106,7 @@
   set smartindent
   set nowrap
   set textwidth=72
-  set formatoptions=croqwanlmB1
+  set formatoptions=croqwnlmB1
   set linebreak
   set nostartofline
   set comments=s1:/*,mb:*,ex:*/,f://,b:#,:%,:XCOMM,n:>,fb:-,b:\"
