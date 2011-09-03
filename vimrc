@@ -1,14 +1,13 @@
 " pathogen {{{
   filetype off 
-  call pathogen#helptags()
-  call pathogen#runtime_append_all_bundles()
+  set nocompatible
+  call pathogen#infect()
 " }}}
 
 " basic config {{{
   syntax on
   filetype plugin indent on
 
-  set nocompatible
   set nobackup
   set nowritebackup
   set noswapfile
