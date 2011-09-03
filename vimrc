@@ -105,7 +105,7 @@
   set autoindent
   set smartindent
   set nowrap
-  set textwidth=72
+  set textwidth=79
   set formatoptions=croqwnlmB1
   set linebreak
   set nostartofline
@@ -282,6 +282,11 @@
 
     " makefiles {{{
       au FileType make set noexpandtab shiftwidth=8
+    " }}}
+
+    " auto-wrap text and text-like files {{{
+      au BufNewFile,BufRead *.txt setfiletype text
+      au FileType text,tex,plaintex,markdown setlocal formatoptions+=ta
     " }}}
   augroup END " }}}
 " }}}
