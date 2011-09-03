@@ -83,7 +83,7 @@
   set undolevels=1000
   set viminfo='1000,h,s1000
   set diffopt+=context:3
-  set statusline=%F%m%r%h%w\ [%{&ff}%(/%{&ft}%)]%=\ [%03.3b/0x%02.2B]\ [%04l,%04v]\ [%p%%\ of\ %L]
+  set statusline=%(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %)%F%m%r%h%w\ [%{&ff}%(/%{&ft}%)]%=\ [%03.3b/0x%02.2B]\ [%04l,%04v]\ [%p%%\ of\ %L]
   execute 'set listchars=eol:'.nr2char(172).',trail:'.nr2char(183).',tab:'.nr2char(8227).'\ ,extends:'.nr2char(8250).',precedes:'.nr2char(8249).',nbsp:'.nr2char(171)
 
   if exists('+relativenumber')
