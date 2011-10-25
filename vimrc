@@ -285,7 +285,7 @@
 
     " auto-wrap text and text-like files {{{
       au BufNewFile,BufRead *.txt setfiletype text
-      au FileType text,tex,plaintex,markdown setlocal formatoptions+=ta
+      au FileType text,tex,plaintex,markdown setlocal formatoptions+=t | setlocal spell
     " }}}
   augroup END " }}}
 " }}}
