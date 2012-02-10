@@ -67,3 +67,6 @@
 [submodule "modules/vim-easytags"]
 	path = modules/vim-easytags
 	url = https://github.com/xolox/vim-easytags.git
+[submodule "modules/vim-indent-guides"]
+	path = modules/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
