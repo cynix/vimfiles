@@ -77,13 +77,13 @@
   set showmode
   set virtualedit=block
   set confirm
-  set updatetime=1500
+  set updatetime=4000
   set history=1000
   set undolevels=1000
   set viminfo='1000,h,s1000
   set diffopt+=context:3
-  set statusline=%(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %)%F%m%r%h%w\ [%{&ff}%(/%{&ft}%)]%=\ [%03.3b/0x%02.2B]\ [%04l,%04v]\ [%p%%\ of\ %L]
-  execute 'set listchars=eol:'.nr2char(172).',trail:'.nr2char(183).',tab:'.nr2char(8227).'\ ,extends:'.nr2char(8250).',precedes:'.nr2char(8249).',nbsp:'.nr2char(171)
+  set statusline=%(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %)%F%m%r%h%w\ [%{&ff}%(/%{&ft}%)]%=\ [%03.3b/0x%02.2B]\ [line:%4l,\ col:%4c]\ [%p%%\ of\ %L]
+  execute 'set listchars=eol:'.nr2char(172).',trail:'.nr2char(183).',tab:'.nr2char(187).'\ ,extends:'.nr2char(8250).',precedes:'.nr2char(8249).',nbsp:'.nr2char(171)
 
   if exists('+relativenumber')
     set relativenumber
@@ -104,15 +104,11 @@
   set autoindent
   set smartindent
   set nowrap
-  set textwidth=79
-  set formatoptions=croqwnlmB1
+  set textwidth=80
+  set formatoptions=roqwnlmB1
   set linebreak
   set nostartofline
   set comments=s1:/*,mb:*,ex:*/,f://,b:#,:%,:XCOMM,n:>,fb:-,b:\"
-
-  if exists('+colorcolumn')
-    set colorcolumn=80
-  endif
 
   " search {{{
     set ignorecase
@@ -123,11 +119,7 @@
   " }}}
 
   " tabs {{{
-    set shiftwidth=2
-    set tabstop=8
-    set softtabstop=4
     set shiftround
-    set expandtab
     set smarttab
   " }}}
 
@@ -155,6 +147,19 @@
   let g:secure_modelines_verbose=0
 " }}}
 
+" easytags {{{
+  set tags=./.tags;,~/.vimtags
+  let g:easytags_dynamic_files=1
+  let g:easytags_python_enabled=1
+  let g:easytags_auto_highlight=0
+" }}}
+
+" indent guides {{{
+  let g:indent_guides_auto_colors=0
+  au VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234
+  au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=NONE
+" }}}
+
 " mappings {{{
   " insert blank line below/above without entering insert mode {{{
     nnoremap - :put=''<CR>
@@ -173,6 +178,10 @@
   " use ctrl-n/p to go to next/prev file (instead of like j/k) {{{
     nnoremap <C-n> :bn<CR>
     nnoremap <C-p> :bp<CR>
+  " }}}
+
+  " use ctrl-g to jump to tag {{{
+    nnoremap <C-g> <C-]>
   " }}}
 
   " p in visual mode replaces selected text with the "" register {{{
@@ -252,6 +261,10 @@
     nmap <silent> <Leader><Tab> :FufBuffer<CR>
     nmap <silent> <Leader><S-Tab> :FufFile<CR>
   " }}}
+
+  " windowing {{{
+    nnoremap \ <C-w>
+  " }}}
 " }}}
 
 " autocommands {{{
@@ -280,7 +293,15 @@
     " }}}
 
     " makefiles {{{
-      au FileType make set noexpandtab shiftwidth=8
+      au FileType make setlocal noexpandtab shiftwidth=8
+    " }}}
+
+    " xml {{{
+      au FileType xml,xsd setlocal tabstop=2 shiftwidth=2 expandtab
+    " }}}
+
+    " python {{{
+      au FileType python setlocal tabstop=4 shiftwidth=4 expandtab
     " }}}
 
     " auto-wrap text and text-like files {{{
@@ -289,3 +310,11 @@
     " }}}
   augroup END " }}}
 " }}}
+
+" use local vimrc if available {{{
+  if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+  endif
+" }}}
+
+" vim: set ts=2 sw=2 et
