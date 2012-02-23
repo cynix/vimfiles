@@ -1,5 +1,5 @@
 " pathogen {{{
-  filetype off 
+  filetype off
   set nocompatible
   call pathogen#infect()
 " }}}
@@ -97,7 +97,7 @@
   " }}}
 
   set splitbelow splitright
-  set noequalalways      
+  set noequalalways
 " }}}
 
 " text options {{{
@@ -279,7 +279,7 @@
     nnoremap <silent> <Space> @=(foldlevel('.')?'za':'30j')<CR>
     vnoremap <Space> zf
   " }}}
-  
+
   " sudo write {{{
     command! -bar -nargs=0 W  silent! exec "write !sudo tee % >/dev/null"  | silent! edit!
   " }}}
