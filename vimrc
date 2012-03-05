@@ -149,6 +149,7 @@
 
 " easytags {{{
   set tags=./.tags;,~/.vimtags
+  set tagfunc=SmartTag#SmartTagFunc
   let g:easytags_dynamic_files=1
   let g:easytags_python_enabled=1
   let g:easytags_auto_highlight=0

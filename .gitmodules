@@ -73,3 +73,6 @@
 [submodule "modules/neocomplcache"]
 	path = modules/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
+[submodule "modules/SmartTag"]
+	path = modules/SmartTag
+	url = https://github.com/MarcWeber/SmartTag.git
