@@ -345,6 +345,10 @@
       au BufNewFile,BufRead *.txt setfiletype text
       au FileType text,tex,plaintex,markdown setlocal formatoptions+=t | setlocal spell
     " }}}
+
+    " Jamfiles {{{
+      au BufNewFile,BufRead *.jam,Jamfile setlocal et ts=2 sts=0 sw=2
+    " }}}
   augroup END " }}}
 " }}}
 
