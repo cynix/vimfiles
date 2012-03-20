@@ -173,7 +173,7 @@
   endif
   let g:neocomplcache_keyword_patterns['default']='\h\w*'
 
-  inoremap <expr><CR>  neocomplcache#smart_close_popup()
+  inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
   inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr><C-h> neocomplcache#smart_close_popup() . "\<C-h>"
   inoremap <expr><BS>  neocomplcache#smart_close_popup() . "\<C-h>"
