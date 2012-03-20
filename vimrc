@@ -147,12 +147,12 @@
   let g:secure_modelines_verbose=0
 " }}}
 
-" easytags {{{
-  set tags=./.tags;,~/.vimtags
-  set tagfunc=SmartTag#SmartTagFunc
-  let g:easytags_dynamic_files=1
-  let g:easytags_python_enabled=1
-  let g:easytags_auto_highlight=0
+" tags {{{
+  let g:GtagsCscope_Auto_Load=1
+  let g:GtagsCscope_Auto_Map=0
+  let g:GtagsCscope_Absolute_Path=1
+  let g:GtagsCscope_Keep_Alive=1
+  let g:GtagsCscope_Quiet=1
 " }}}
 
 " autocomplete {{{
@@ -169,7 +169,7 @@
   let g:neocomplcache_keyword_patterns['default']='\h\w*'
 
   inoremap <expr><CR>  neocomplcache#smart_close_popup()
-  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr><C-h> neocomplcache#smart_close_popup() . "\<C-h>"
   inoremap <expr><BS>  neocomplcache#smart_close_popup() . "\<C-h>"
   inoremap <expr><C-y> neocomplcache#close_popup()
@@ -179,7 +179,7 @@
   au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   au FileType python setlocal omnifunc=pythoncomplete#Complete
-  "au FileType ruby setlocal omnifunc=rubycomplete#Complete
+  au FileType ruby setlocal omnifunc=rubycomplete#Complete
   au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
   if !exists('g:neocomplcache_omni_patterns')
@@ -218,7 +218,7 @@
   " }}}
 
   " use ctrl-g to jump to tag {{{
-    nnoremap <C-g> <C-]>
+    nnoremap <C-g> :cs find d <C-R>=expand("<cword>")<CR>:<C-R>=line('.')<CR>:%:p<CR>
   " }}}
 
   " p in visual mode replaces selected text with the "" register {{{

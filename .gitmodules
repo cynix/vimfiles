@@ -64,15 +64,9 @@
 [submodule "modules/vim-l9"]
 	path = modules/vim-l9
 	url = https://github.com/git-mirror/vim-l9.git
-[submodule "modules/vim-easytags"]
-	path = modules/vim-easytags
-	url = https://github.com/xolox/vim-easytags.git
 [submodule "modules/vim-indent-guides"]
 	path = modules/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "modules/neocomplcache"]
 	path = modules/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
-[submodule "modules/SmartTag"]
-	path = modules/SmartTag
-	url = https://github.com/MarcWeber/SmartTag.git
