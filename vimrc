@@ -52,6 +52,11 @@
 " }}}
 
 " UI options {{{
+  " highlight unwanted whitespace {{{
+    au ColorScheme * highlight ExtraWhitespace ctermbg=darkred guibg=darkred
+    au BufWinEnter * let w:extra_whitespace=matchadd('ExtraWhitespace', '\s\+$', -1)
+  " }}}
+
   " color scheme {{{
     set background=dark
     set t_Co=256
@@ -279,10 +284,6 @@
   " toggle fold {{{
     nnoremap <silent> <Space> @=(foldlevel('.')?'za':'30j')<CR>
     vnoremap <Space> zf
-  " }}}
-
-  " sudo write {{{
-    command! -bar -nargs=0 W  silent! exec "write !sudo tee % >/dev/null"  | silent! edit!
   " }}}
 
   " always use very magic regexes {{{
