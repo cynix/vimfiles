@@ -70,3 +70,6 @@
 [submodule "modules/neocomplcache"]
 	path = modules/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
+[submodule "modules/sudo.vim"]
+	path = modules/sudo.vim
+	url = https://github.com/vim-scripts/sudo.vim.git
