@@ -354,6 +354,9 @@
 " }}}
 
 " use local vimrc if available {{{
+  if filereadable(expand("$VIM/vimrc.local"))
+    source $VIM/vimrc.local
+  endif
   if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
   endif
