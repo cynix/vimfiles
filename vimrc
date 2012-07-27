@@ -338,6 +338,10 @@
       au FileType xml,xsd setlocal tabstop=2 shiftwidth=2 expandtab
     " }}}
 
+    " ruby {{{
+      au FileType ruby setlocal tabstop=2 shiftwidth=2 expandtab
+    " }}}
+
     " python {{{
       au FileType python setlocal tabstop=4 shiftwidth=4 expandtab
     " }}}
