@@ -384,8 +384,8 @@
       \ endif
 
     " automatically close preview window
-    au CursorMovedI * if pumvisible() == 0 | pclose | endif
-    au InsertLeave *  if pumvisible() == 0 | pclose | endif
+    au CursorMovedI * if pumvisible() == 0 | silent! pclose | endif
+    au InsertLeave  * if pumvisible() == 0 | silent! pclose | endif
   augroup END " }}}
 " }}}
 
