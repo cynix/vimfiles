@@ -165,6 +165,7 @@
   let g:neocomplcache_enable_smart_case=1
   let g:neocomplcache_enable_camel_case_completion=1
   let g:neocomplcache_enable_underbar_completion=1
+  let g:neocomplcache_force_overwrite_completefunc=1
   let g:neocomplcache_min_syntax_length=3
   let g:neocomplcache_lock_buffer_name_pattern='\*ku\*'
 
@@ -194,6 +195,23 @@
   let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
   let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
   let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+  let g:clang_auto_select=1
+  let g:clang_complete_auto=1
+  let g:clang_complete_copen=1
+  let g:clang_hl_errors=1
+  let g:clang_periodic_quickfix=1
+  let g:clang_snippets=0
+  let g:clang_snippets_engine="clang_complete"
+  let g:clang_conceal_snippets=1
+  let g:clang_exec="clang"
+  let g:clang_user_options=""
+  let g:clang_auto_user_options="path, .clang_complete"
+  let g:clang_use_library=1
+  let g:clang_library_path="/usr/lib"
+  let g:clang_sort_algo="priority"
+  let g:clang_complete_macros=1
+  let g:clang_complete_patterns=0
 " }}}
 
 " indent guides {{{
@@ -354,6 +372,14 @@
     " Jamfiles {{{
       au BufNewFile,BufRead *.jam,Jamfile setlocal et ts=2 sts=0 sw=2
     " }}}
+  augroup END " }}}
+
+  augroup QuickFixClose " {{{
+	autocmd!
+	au WinEnter *
+	  \ if winnr('$') == 1 && getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix' |
+	  \   quit |
+	  \ endif
   augroup END " }}}
 " }}}
 
