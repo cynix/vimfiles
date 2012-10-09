@@ -374,12 +374,18 @@
     " }}}
   augroup END " }}}
 
-  augroup QuickFixClose " {{{
-	autocmd!
-	au WinEnter *
-	  \ if winnr('$') == 1 && getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix' |
-	  \   quit |
-	  \ endif
+  augroup AutoCloseWindows " {{{
+    autocmd!
+
+    " automatically close quickfix window
+    au WinEnter *
+      \ if winnr('$') == 1 && getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix' |
+      \   quit |
+      \ endif
+
+    " automatically close preview window
+    au CursorMovedI * if pumvisible() == 0 | pclose | endif
+    au InsertLeave *  if pumvisible() == 0 | pclose | endif
   augroup END " }}}
 " }}}
 
