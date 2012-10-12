@@ -193,11 +193,15 @@
   endif
   let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
   let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-  let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-  let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+  if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns={}
+  endif
+  let g:neocomplcache_force_omni_patterns.c = '\%(\.\|->\)\h\w*'
+  let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 
   let g:clang_auto_select=1
-  let g:clang_complete_auto=1
+  let g:clang_complete_auto=0
   let g:clang_complete_copen=1
   let g:clang_hl_errors=1
   let g:clang_periodic_quickfix=1
@@ -232,7 +236,8 @@
   " }}}
 
   " D is d$, C is c$, so why should Y be yy? {{{
-    noremap Y y$
+    call yankstack#setup()
+    nmap Y y$
   " }}}
 
   " use ctrl-n/p to go to next/prev file (instead of like j/k) {{{

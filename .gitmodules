@@ -73,9 +73,9 @@
 [submodule "modules/nginx-vim-syntax"]
 	path = modules/nginx-vim-syntax
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
-[submodule "modules/neocomplcache-clang_complete"]
-	path = modules/neocomplcache-clang_complete
-	url = https://github.com/osyo-manga/neocomplcache-clang_complete.git
 [submodule "modules/clang_complete"]
 	path = modules/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule "modules/vim-yankstack"]
+	path = modules/vim-yankstack
+	url = https://github.com/maxbrunsfeld/vim-yankstack.git
