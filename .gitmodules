@@ -64,18 +64,18 @@
 [submodule "modules/vim-indent-guides"]
 	path = modules/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "modules/neocomplcache"]
-	path = modules/neocomplcache
-	url = https://github.com/Shougo/neocomplcache.git
 [submodule "modules/sudo.vim"]
 	path = modules/sudo.vim
 	url = https://github.com/vim-scripts/sudo.vim.git
 [submodule "modules/nginx-vim-syntax"]
 	path = modules/nginx-vim-syntax
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
-[submodule "modules/clang_complete"]
-	path = modules/clang_complete
-	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule "modules/vim-yankstack"]
 	path = modules/vim-yankstack
 	url = https://github.com/maxbrunsfeld/vim-yankstack.git
+[submodule "modules/YouCompleteMe"]
+	path = modules/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "modules/syntastic"]
+	path = modules/syntastic
+	url = https://github.com/scrooloose/syntastic.git
