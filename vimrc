@@ -156,10 +156,6 @@
   set smartindent
   set nowrap
   set textwidth=80
-  set tabstop=4
-  set softtabstop=0
-  set shiftwidth=4
-  set noexpandtab
   set formatoptions=roqwnlmB1
   set linebreak
   set nostartofline
@@ -174,8 +170,12 @@
   " }}}
 
   " tabs {{{
+    set tabstop=4
+    set softtabstop=0
+    set shiftwidth=4
     set shiftround
     set smarttab
+    set noexpandtab
   " }}}
 
   " highlight redundant spaces {{{
