@@ -1,12 +1,49 @@
-" pathogen {{{
-  filetype off
+" bootstrap {{{
   set nocompatible
-  call pathogen#infect()
+  filetype off
+
+  if has('vim_starting')
+    let &runtimepath .= ',' . escape(fnamemodify(resolve(expand('<sfile>')), ':h') . '/bundle/neobundle.vim/', '\,')
+  endif
+
+  let g:neobundle_default_git_protocol = 'https'
+  call neobundle#rc(expand('~/.vim/bundle/'))
+
+  NeoBundle 'airblade/vim-gitgutter'
+  NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'ciaranm/securemodelines'
+  NeoBundle 'evanmiller/nginx-vim-syntax'
+  NeoBundle 'FuzzyFinder', { 'depends': 'L9' }
+  NeoBundle 'godlygeek/tabular'
+  NeoBundle 'gregsexton/gitv', { 'depends': [['tpope/vim-fugitive', { 'augroup': 'fugitive' }]] }
+  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'Lokaltog/powerline'
+  NeoBundle 'Lokaltog/vim-easymotion'
+  NeoBundle 'maxbrunsfeld/vim-yankstack'
+  NeoBundle 'othree/html5.vim'
+  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'scrooloose/nerdcommenter'
+  NeoBundle 'scrooloose/syntastic'
+  NeoBundle 'Shougo/vimfiler', { 'depends': 'Shougo/unite.vim' }
+  NeoBundle 'Shougo/vimproc', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
+  NeoBundle 'tpope/vim-endwise'
+  NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
+  NeoBundle 'tpope/vim-markdown'
+  NeoBundle 'tpope/vim-repeat'
+  NeoBundle 'tpope/vim-surround'
+  NeoBundle 'tpope/vim-unimpaired'
+  NeoBundle 'vim-ruby/vim-ruby'
+
+  if v:version >= 703 && has('patch584') && has('python') && (filereadable('/usr/lib/libclang.dylib') || filereadable('/usr/local/lib/libclang.so') || filereadable('/opt/local/lib/libclang.so') || filereadable('/usr/lib64/libclang.so') || filereadable('/usr/lib/libclang.so'))
+    NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'mac': 'EXTRA_CMAKE_ARGS="-DUSE_SYSTEM_LIBCLANG=ON" ./install.sh --clang-completer', 'unix': 'EXTRA_CMAKE_ARGS="-DUSE_SYSTEM_LIBCLANG" ./install.sh --clang-completer' } }
+  endif
+
+  filetype plugin indent on
+  NeoBundleCheck
 " }}}
 
 " basic config {{{
   syntax on
-  filetype plugin indent on
 
   set nobackup
   set nowritebackup
@@ -14,6 +51,10 @@
   set autochdir
 
   if exists('+undofile')
+    if !isdirectory(expand('~/.vim/tmp')) && exists('*mkdir')
+      call mkdir(expand('~/.vim/tmp'), 'p', 0700)
+    endif
+
     set undofile
     set undodir=~/.vim/tmp
   endif
@@ -53,8 +94,12 @@
 
 " UI options {{{
   " highlight unwanted whitespace {{{
-    au ColorScheme * highlight ExtraWhitespace ctermbg=darkred guibg=darkred
+    au ColorScheme * highlight ExtraWhitespace ctermbg=52 guibg=52 
     au BufWinEnter * let w:extra_whitespace=matchadd('ExtraWhitespace', '\s\+$', -1)
+  " }}}
+
+  " adjust gutter color {{{
+    au ColorScheme * highlight SignColumn ctermbg=NONE
   " }}}
 
   " color scheme {{{
@@ -92,6 +137,7 @@
 
   if exists('+relativenumber')
     set relativenumber
+    setglobal relativenumber
   endif
 
   " scrolling {{{
@@ -110,6 +156,10 @@
   set smartindent
   set nowrap
   set textwidth=80
+  set tabstop=4
+  set softtabstop=0
+  set shiftwidth=4
+  set noexpandtab
   set formatoptions=roqwnlmB1
   set linebreak
   set nostartofline
@@ -160,17 +210,22 @@
   let g:GtagsCscope_Quiet=1
 " }}}
 
-" autocomplete {{{
+" auto-complete and syntax checking {{{
   let g:ycm_add_preview_to_completeopt=1
   let g:syntastic_check_on_open=1
   let g:syntastic_enable_signs=0
   let g:syntastic_quiet_warnings=1
+  highlight SyntasticErrorSign ctermfg=white ctermbg=red guifg=white guibg=red
 " }}}
 
 " indent guides {{{
   let g:indent_guides_auto_colors=0
-  au VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234
-  au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=NONE
+  au VimEnter,ColorScheme * :hi IndentGuidesOdd  ctermbg=234
+  au VimEnter,ColorScheme * :hi IndentGuidesEven ctermbg=NONE
+" }}}
+
+" vimfiler {{{
+  let g:vimfiler_as_default_explorer = 1
 " }}}
 
 " mappings {{{
@@ -187,11 +242,6 @@
   " D is d$, C is c$, so why should Y be yy? {{{
     call yankstack#setup()
     nmap Y y$
-  " }}}
-
-  " use ctrl-n/p to go to next/prev file (instead of like j/k) {{{
-    nnoremap <C-n> :bn<CR>
-    nnoremap <C-p> :bp<CR>
   " }}}
 
   " use ctrl-g to jump to tag {{{
@@ -264,7 +314,7 @@
   " }}}
 
   " use tab for bracket matching {{{
-    nnoremap <Tab> %
+    nmap <Tab> %
   " }}}
 
   " FuzzyFinder {{{
@@ -303,7 +353,7 @@
     " }}}
 
     " makefiles {{{
-      au FileType make setlocal noexpandtab shiftwidth=8
+      au FileType make setlocal tabstop=8 shiftwidth=8 noexpandtab
     " }}}
 
     " xml {{{
@@ -324,7 +374,7 @@
     " }}}
 
     " Jamfiles {{{
-      au BufNewFile,BufRead *.jam,Jamfile setlocal et ts=2 sts=0 sw=2
+      au BufNewFile,BufRead *.jam,Jamfile setlocal tabstop=2 shiftwidth=2 expandtab
     " }}}
   augroup END " }}}
 
@@ -343,10 +393,10 @@
 " }}}
 
 " use local vimrc if available {{{
-  if filereadable(expand("$VIM/vimrc.local"))
+  if filereadable(expand('$VIM/vimrc.local'))
     source $VIM/vimrc.local
   endif
-  if filereadable(expand("~/.vimrc.local"))
+  if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
   endif
 " }}}
