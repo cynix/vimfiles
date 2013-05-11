@@ -13,7 +13,6 @@
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'ciaranm/securemodelines'
   NeoBundle 'evanmiller/nginx-vim-syntax'
-  NeoBundle 'FuzzyFinder', { 'depends': 'L9' }
   NeoBundle 'godlygeek/tabular'
   NeoBundle 'gregsexton/gitv', { 'depends': [['tpope/vim-fugitive', { 'augroup': 'fugitive' }]] }
   NeoBundle 'kien/ctrlp.vim'
@@ -321,13 +320,11 @@
     nmap <Tab> %
   " }}}
 
-  " FuzzyFinder {{{
-    nmap <silent> <Leader><Tab> :FufBuffer<CR>
-    nmap <silent> <Leader><S-Tab> :FufFile<CR>
-  " }}}
-
-  " windowing {{{
+  " windows and buffers {{{
     nnoremap \ <C-w>
+    nmap \\ :b#<CR>
+    nmap \d :bd<CR>
+    nmap ; :CtrlPBuffer<CR>
   " }}}
 " }}}
 
