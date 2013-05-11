@@ -228,6 +228,10 @@
   let g:vimfiler_as_default_explorer = 1
 " }}}
 
+" easymotion {{{
+  let g:EasyMotion_leader_key = '<Leader>'
+" }}}
+
 " mappings {{{
   " insert blank line below/above without entering insert mode {{{
     nnoremap - :put=''<CR>
