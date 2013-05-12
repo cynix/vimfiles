@@ -324,7 +324,7 @@
     nnoremap \ <C-w>
     nmap \\ :b#<CR>
     nmap \d :bd<CR>
-    nmap ; :CtrlPBuffer<CR>
+    nmap \b :CtrlPBuffer<CR>
   " }}}
 " }}}
 
