@@ -12,6 +12,7 @@
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'ciaranm/securemodelines'
+  NeoBundle 'CursorLineCurrentWindow'
   NeoBundle 'evanmiller/nginx-vim-syntax'
   NeoBundle 'godlygeek/tabular'
   NeoBundle 'gregsexton/gitv', { 'depends': [['tpope/vim-fugitive', { 'augroup': 'fugitive' }]] }
@@ -21,6 +22,7 @@
   NeoBundle 'maxbrunsfeld/vim-yankstack'
   NeoBundle 'othree/html5.vim'
   NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'RelativeNumberCurrentWindow'
   NeoBundle 'scrooloose/nerdcommenter'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'Shougo/vimfiler', { 'depends': 'Shougo/unite.vim' }
@@ -136,7 +138,6 @@
 
   if exists('+relativenumber')
     set relativenumber
-    setglobal relativenumber
   endif
 
   " scrolling {{{
