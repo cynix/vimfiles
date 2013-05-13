@@ -211,6 +211,7 @@
 
 " auto-complete and syntax checking {{{
   let g:ycm_add_preview_to_completeopt=1
+  let g:ycm_confirm_extra_conf=0
   let g:syntastic_check_on_open=1
   let g:syntastic_enable_signs=0
   let g:syntastic_quiet_warnings=1
