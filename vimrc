@@ -17,7 +17,7 @@
   NeoBundle 'godlygeek/tabular'
   NeoBundle 'gregsexton/gitv', { 'depends': [['tpope/vim-fugitive', { 'augroup': 'fugitive' }]] }
   NeoBundle 'kien/ctrlp.vim'
-  NeoBundle 'Lokaltog/powerline'
+  NeoBundle 'Lokaltog/powerline', { 'rtp': 'powerline/bindings/vim' }
   NeoBundle 'Lokaltog/vim-easymotion'
   NeoBundle 'maxbrunsfeld/vim-yankstack'
   NeoBundle 'othree/html5.vim'
@@ -133,7 +133,6 @@
   set undolevels=1000
   set viminfo='1000,h,s1000
   set diffopt+=context:3
-  set statusline=%(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %)%F%m%r%h%w\ [%{&ff}%(/%{&ft}%)]%(\ %#warningmsg#%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}%*%)%=\ [%03.3b/0x%02.2B]\ [line:%4l,\ col:%4c]\ [%p%%\ of\ %L]
   execute 'set listchars=eol:'.nr2char(172).',trail:'.nr2char(183).',tab:'.nr2char(187).'\ ,extends:'.nr2char(8250).',precedes:'.nr2char(8249).',nbsp:'.nr2char(171)
 
   if exists('+relativenumber')
