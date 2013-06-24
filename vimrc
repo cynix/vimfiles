@@ -248,8 +248,10 @@
     nmap Y y$
   " }}}
 
-  " use ctrl-g to jump to tag {{{
+  " jump to tags and symbols {{{
     nnoremap <C-g> :cs find d <C-R>=expand("<cword>")<CR>:<C-R>=line('.')<CR>:%:p<CR>
+    nnoremap <silent> <C-j> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    nnoremap <silent> <C-t> <C-o>
   " }}}
 
   " p in visual mode replaces selected text with the "" register {{{
