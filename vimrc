@@ -13,9 +13,11 @@
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'ciaranm/securemodelines'
   NeoBundle 'CursorLineCurrentWindow'
+  NeoBundle 'digitaltoad/vim-jade'
   NeoBundle 'evanmiller/nginx-vim-syntax'
   NeoBundle 'godlygeek/tabular'
   NeoBundle 'gregsexton/gitv', { 'depends': [['tpope/vim-fugitive', { 'augroup': 'fugitive' }]] }
+  NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'Lokaltog/powerline', { 'rtp': 'powerline/bindings/vim' }
   NeoBundle 'Lokaltog/vim-easymotion'
