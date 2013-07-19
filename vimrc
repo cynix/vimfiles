@@ -38,7 +38,7 @@
   NeoBundle 'vim-ruby/vim-ruby'
 
   if v:version >= 703 && has('patch584') && has('python') && (filereadable('/usr/lib/libclang.dylib') || filereadable('/usr/local/lib/libclang.so') || filereadable('/opt/local/lib/libclang.so') || filereadable('/usr/lib64/libclang.so') || filereadable('/usr/lib/libclang.so'))
-    NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'mac': 'env EXTRA_CMAKE_ARGS="-DUSE_SYSTEM_LIBCLANG=ON" ./install.sh --clang-completer', 'unix': 'env EXTRA_CMAKE_ARGS="-DUSE_SYSTEM_LIBCLANG=ON" ./install.sh --clang-completer' } }
+    NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'mac': './install.sh --clang-completer --system-clang', 'unix': './install.sh --clang-completer --system-clang' } }
   endif
 
   filetype plugin indent on
