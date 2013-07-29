@@ -24,12 +24,12 @@
   NeoBundle 'maxbrunsfeld/vim-yankstack'
   NeoBundle 'othree/html5.vim'
   NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'Raimondi/delimitMate', { 'augroup': 'delimitMate' }
   NeoBundle 'RelativeNumberCurrentWindow'
   NeoBundle 'scrooloose/nerdcommenter'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'Shougo/vimfiler', { 'depends': 'Shougo/unite.vim' }
   NeoBundle 'Shougo/vimproc', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
-  NeoBundle 'tpope/vim-endwise'
   NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
   NeoBundle 'tpope/vim-markdown'
   NeoBundle 'tpope/vim-repeat'
@@ -232,6 +232,10 @@
 
 " easymotion {{{
   let g:EasyMotion_leader_key = '<Leader>'
+" }}}
+
+" delimitMate {{{
+  let g:delimitMate_expand_space=1
 " }}}
 
 " mappings {{{
