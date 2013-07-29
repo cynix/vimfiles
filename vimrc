@@ -35,6 +35,7 @@
   NeoBundle 'tpope/vim-repeat'
   NeoBundle 'tpope/vim-surround'
   NeoBundle 'tpope/vim-unimpaired'
+  NeoBundle 'Valloric/MatchTagAlways', { 'augroup': 'matchtagalways' }
   NeoBundle 'vim-ruby/vim-ruby'
 
   if v:version >= 703 && has('patch584') && has('python') && (filereadable('/usr/lib/libclang.dylib') || filereadable('/usr/local/lib/libclang.so') || filereadable('/opt/local/lib/libclang.so') || filereadable('/usr/lib64/libclang.so') || filereadable('/usr/lib/libclang.so'))
