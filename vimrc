@@ -24,7 +24,7 @@
   NeoBundle 'maxbrunsfeld/vim-yankstack'
   NeoBundle 'othree/html5.vim'
   NeoBundle 'pangloss/vim-javascript'
-  NeoBundle 'Raimondi/delimitMate', { 'augroup': 'delimitMate' }
+  NeoBundle 'Raimondi/delimitMate'
   NeoBundle 'RelativeNumberCurrentWindow'
   NeoBundle 'scrooloose/nerdcommenter'
   NeoBundle 'scrooloose/syntastic'
@@ -35,7 +35,7 @@
   NeoBundle 'tpope/vim-repeat'
   NeoBundle 'tpope/vim-surround'
   NeoBundle 'tpope/vim-unimpaired'
-  NeoBundle 'Valloric/MatchTagAlways', { 'augroup': 'matchtagalways' }
+  NeoBundle 'Valloric/MatchTagAlways'
   NeoBundle 'vim-ruby/vim-ruby'
 
   if (v:version > 703 || v:version == 703 && has('patch584')) && has('python') && (filereadable('/usr/lib/libclang.dylib') || filereadable('/usr/local/lib/libclang.so') || filereadable('/opt/local/lib/libclang.so') || filereadable('/usr/lib64/libclang.so') || filereadable('/usr/lib/libclang.so'))
