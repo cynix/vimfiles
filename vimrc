@@ -11,6 +11,7 @@
 
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'chrisbra/SudoEdit.vim'
   NeoBundle 'ciaranm/securemodelines'
   NeoBundle 'CursorLineCurrentWindow'
   NeoBundle 'digitaltoad/vim-jade'
