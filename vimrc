@@ -68,7 +68,6 @@
   set fileformat=unix
 
   set showmatch
-  set matchpairs+=<:>
   set matchtime=5
 
   set backspace=indent,eol,start
@@ -369,8 +368,8 @@
       au FileType make setlocal tabstop=8 shiftwidth=8 noexpandtab
     " }}}
 
-    " xml {{{
-      au FileType xml,xsd setlocal tabstop=2 shiftwidth=2 expandtab
+    " html/xml {{{
+      au FileType html,xhtml,xml,xsd setlocal tabstop=2 shiftwidth=2 expandtab matchpairs+=<:>
     " }}}
 
     " ruby {{{
