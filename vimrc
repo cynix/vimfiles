@@ -19,6 +19,7 @@
   NeoBundle 'chrisbra/SudoEdit.vim'
   NeoBundle 'ciaranm/securemodelines'
   NeoBundle 'CursorLineCurrentWindow'
+  NeoBundle 'cynix/auto-neobundle'
   NeoBundle 'digitaltoad/vim-jade'
   NeoBundle 'evanmiller/nginx-vim-syntax'
   NeoBundle 'godlygeek/tabular'
@@ -49,7 +50,12 @@
   endif
 
   filetype plugin indent on
+
   NeoBundleCheck
+  augroup AutoNeoBundle
+    autocmd!
+    autocmd VimEnter * call auto_neobundle#update_weekly()
+  augroup END
 " }}}
 
 " basic config {{{
