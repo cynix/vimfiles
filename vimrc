@@ -3,11 +3,16 @@
   filetype off
 
   if has('vim_starting')
-    let &runtimepath .= ',' . escape(fnamemodify(resolve(expand('<sfile>')), ':h') . '/bundle/neobundle.vim/', '\,')
+    if isdirectory('~/.vim/bundle/neobundle.vim')
+      set runtimepath+=~/.vim/bundle/neobundle.vim/
+    else
+      let &runtimepath .= ',' . escape(fnamemodify(resolve(expand('<sfile>')), ':h') . '/bundle/neobundle.vim/', '\,')
+    endif
   endif
 
-  let g:neobundle_default_git_protocol = 'https'
   call neobundle#rc(expand('~/.vim/bundle/'))
+
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'altercation/vim-colors-solarized'
