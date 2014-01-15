@@ -223,6 +223,7 @@
   let g:syntastic_check_on_open=1
   let g:syntastic_enable_signs=0
   let g:syntastic_quiet_messages={'level': 'warnings'}
+  highlight SyntasticError     ctermfg=white ctermbg=124 guifg=NONE guibg=NONE gui=undercurl guisp=#ff0000
   highlight SyntasticErrorSign ctermfg=white ctermbg=red guifg=white guibg=red
 " }}}
 
