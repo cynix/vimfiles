@@ -18,6 +18,7 @@
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'chrisbra/SudoEdit.vim'
   NeoBundle 'ciaranm/securemodelines'
+  NeoBundle 'ConflictMotions'
   NeoBundle 'CursorLineCurrentWindow'
   NeoBundle 'cynix/auto-neobundle'
   NeoBundle 'digitaltoad/vim-jade'
@@ -198,8 +199,6 @@
 
   " highlight conflict markers {{{
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-    " jump to next conflict
-    nmap <silent> <Leader>> /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
   " }}}
 " }}}
 
