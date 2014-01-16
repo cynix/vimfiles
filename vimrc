@@ -18,7 +18,8 @@
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'chrisbra/SudoEdit.vim'
   NeoBundle 'ciaranm/securemodelines'
-  NeoBundle 'ConflictMotions'
+  NeoBundle 'ConflictDetection', { 'depends': 'ingo-library' }
+  NeoBundle 'ConflictMotions', { 'depends': ['ingo-library', 'CountJump'] }
   NeoBundle 'CursorLineCurrentWindow'
   NeoBundle 'cynix/auto-neobundle'
   NeoBundle 'digitaltoad/vim-jade'
@@ -196,10 +197,6 @@
     hi RedundantSpaces ctermfg=214 ctermbg=160 cterm=bold
     match RedundantSpaces / \+\ze\t/
   " }}}
-
-  " highlight conflict markers {{{
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-  " }}}
 " }}}
 
 " folding {{{
@@ -244,6 +241,14 @@
 
 " easymotion {{{
   let g:EasyMotion_leader_key = '<Leader>'
+" }}}
+
+" ConflictDetection/ConflictMotions {{{
+  highlight def conflictOursMarker   ctermfg=red
+  highlight def conflictTheirsMarker ctermfg=red
+  let g:ConflictMotions_ConflictBeginMapping = 'c'
+  let g:ConflictMotions_ConflictEndMapping   = 'C'
+  let g:ConflictMotions_ConflictMapping      = 'c'
 " }}}
 
 " delimitMate {{{
