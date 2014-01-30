@@ -257,6 +257,9 @@
 " }}}
 
 " mappings {{{
+  " map jk to Esc in insert mode
+  inoremap jk <Esc>
+
   " insert blank line below/above without entering insert mode {{{
     nnoremap - :put=''<CR>
     nnoremap + :put!=''<CR>
