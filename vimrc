@@ -20,6 +20,7 @@
   NeoBundle 'ciaranm/securemodelines'
   NeoBundle 'CursorLineCurrentWindow'
   NeoBundle 'cynix/auto-neobundle'
+  NeoBundle 'cynix/vimproc', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
   NeoBundle 'digitaltoad/vim-jade'
   NeoBundle 'evanmiller/nginx-vim-syntax'
   NeoBundle 'godlygeek/tabular'
@@ -36,7 +37,6 @@
   NeoBundle 'scrooloose/nerdcommenter'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'Shougo/vimfiler', { 'depends': 'Shougo/unite.vim' }
-  NeoBundle 'Shougo/vimproc', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
   NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
   NeoBundle 'tpope/vim-markdown'
   NeoBundle 'tpope/vim-repeat'
