@@ -18,6 +18,8 @@
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'chrisbra/SudoEdit.vim'
   NeoBundle 'ciaranm/securemodelines'
+  NeoBundle 'ConflictDetection', { 'depends': 'ingo-library' }
+  NeoBundle 'ConflictMotions', { 'depends': ['ingo-library', 'CountJump'] }
   NeoBundle 'CursorLineCurrentWindow'
   NeoBundle 'cynix/auto-neobundle'
   NeoBundle 'cynix/vimproc', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
@@ -195,12 +197,6 @@
     hi RedundantSpaces ctermfg=214 ctermbg=160 cterm=bold
     match RedundantSpaces / \+\ze\t/
   " }}}
-
-  " highlight conflict markers {{{
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-    " jump to next conflict
-    nmap <silent> <Leader>> /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
-  " }}}
 " }}}
 
 " folding {{{
@@ -247,12 +243,23 @@
   let g:EasyMotion_leader_key = '<Leader>'
 " }}}
 
+" ConflictDetection/ConflictMotions {{{
+  highlight def conflictOursMarker   ctermfg=red
+  highlight def conflictTheirsMarker ctermfg=red
+  let g:ConflictMotions_ConflictBeginMapping = 'c'
+  let g:ConflictMotions_ConflictEndMapping   = 'C'
+  let g:ConflictMotions_ConflictMapping      = 'c'
+" }}}
+
 " delimitMate {{{
   let g:delimitMate_expand_cr=1
   let g:delimitMate_expand_space=1
 " }}}
 
 " mappings {{{
+  " map jk to Esc in insert mode
+  inoremap jk <Esc>
+
   " insert blank line below/above without entering insert mode {{{
     nnoremap - :put=''<CR>
     nnoremap + :put!=''<CR>
