@@ -22,7 +22,7 @@
   NeoBundle 'ConflictMotions', { 'depends': ['ingo-library', 'CountJump'] }
   NeoBundle 'CursorLineCurrentWindow'
   NeoBundle 'cynix/auto-neobundle'
-  NeoBundle 'cynix/vimproc', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
+  NeoBundle 'cynix/vimproc.vim', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
   NeoBundle 'digitaltoad/vim-jade'
   NeoBundle 'evanmiller/nginx-vim-syntax'
   NeoBundle 'godlygeek/tabular'
