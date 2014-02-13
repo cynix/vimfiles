@@ -246,6 +246,7 @@
 " ConflictDetection/ConflictMotions {{{
   highlight def conflictOursMarker   ctermfg=red
   highlight def conflictTheirsMarker ctermfg=red
+  highlight def link conflictBaseMarker conflictBase
   let g:ConflictMotions_ConflictBeginMapping = 'c'
   let g:ConflictMotions_ConflictEndMapping   = 'C'
   let g:ConflictMotions_ConflictMapping      = 'c'
