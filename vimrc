@@ -23,6 +23,7 @@
   NeoBundle 'CursorLineCurrentWindow'
   NeoBundle 'cynix/auto-neobundle'
   NeoBundle 'cynix/vimproc.vim', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
+  NeoBundle 'derekwyatt/vim-fswitch'
   NeoBundle 'digitaltoad/vim-jade'
   NeoBundle 'evanmiller/nginx-vim-syntax'
   NeoBundle 'godlygeek/tabular'
@@ -282,6 +283,10 @@
     nnoremap <silent> <C-t> <C-o>
   " }}}
 
+  " switch to companion file {{{
+    nnoremap <C-o> :FSHere<CR>
+  " }}}
+
   " p in visual mode replaces selected text with the "" register {{{
     vnoremap p <Esc>:let current_reg = @"<CR>gvs<C-R>=current_reg<CR><Esc>
   " }}}
@@ -421,6 +426,13 @@
 
     " automatically close preview window
     au InsertLeave  * if pumvisible() == 0 | silent! pclose | endif
+  augroup END " }}}
+
+  augroup FSwitchConfig " {{{
+    autocmd!
+
+    au BufEnter *.cc let b:fswitchdst='h,hh'
+    au BufEnter *.h  let b:fswitchdst='c,cc,cpp,m'
   augroup END " }}}
 " }}}
 
