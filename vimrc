@@ -391,6 +391,7 @@
 
     " makefiles {{{
       au FileType make setlocal tabstop=8 shiftwidth=8 noexpandtab
+      au FileType cmake setlocal tabstop=4 shiftwidth=4 expandtab
     " }}}
 
     " html/xml {{{
