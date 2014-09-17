@@ -1,64 +1,49 @@
 " bootstrap {{{
   set nocompatible
-  filetype off
 
-  if has('vim_starting')
-    if isdirectory('~/.vim/bundle/neobundle.vim')
-      set runtimepath+=~/.vim/bundle/neobundle.vim/
-    else
-      let &runtimepath .= ',' . escape(fnamemodify(resolve(expand('<sfile>')), ':h') . '/bundle/neobundle.vim/', '\,')
-    endif
+  call plug#begin('~/.vim/plugged')
+
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'bling/vim-airline'
+  Plug 'chrisbra/SudoEdit.vim'
+  Plug 'ciaranm/securemodelines'
+  Plug 'derekwyatt/vim-fswitch'
+  Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+  Plug 'evanmiller/nginx-vim-syntax', { 'for': 'nginx' }
+  Plug 'godlygeek/tabular'
+  Plug 'gregsexton/gitv', { 'on': 'Gitv' }
+  Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+  Plug 'kien/ctrlp.vim'
+  Plug 'Lokaltog/vim-easymotion'
+  Plug 'maxbrunsfeld/vim-yankstack'
+  Plug 'mhinz/vim-signify'
+  Plug 'othree/html5.vim', { 'for': 'html' }
+  Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+  Plug 'Raimondi/delimitMate'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'scrooloose/syntastic'
+  Plug 'tpope/vim-fugitive' " gitv
+  Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'Valloric/MatchTagAlways'
+  Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+  Plug 'vim-scripts/ConflictDetection'
+  Plug 'vim-scripts/ConflictMotions'
+  Plug 'vim-scripts/CountJump' " ConflictMotions
+  Plug 'vim-scripts/ingo-library' " ConflictDetection, ConflictMotions
+  Plug 'vim-scripts/CursorLineCurrentWindow'
+
+  if exists('+relativenumber')
+    Plug 'cynix/numbers.vim'
   endif
-
-  call neobundle#rc(expand('~/.vim/bundle/'))
-
-  NeoBundleFetch 'Shougo/neobundle.vim'
-
-  NeoBundle 'airblade/vim-gitgutter'
-  NeoBundle 'altercation/vim-colors-solarized'
-  NeoBundle 'chrisbra/SudoEdit.vim'
-  NeoBundle 'ciaranm/securemodelines'
-  NeoBundle 'ConflictDetection', { 'depends': 'ingo-library' }
-  NeoBundle 'ConflictMotions', { 'depends': ['ingo-library', 'CountJump'] }
-  NeoBundle 'CursorLineCurrentWindow'
-  NeoBundle 'cynix/auto-neobundle'
-  NeoBundle 'cynix/vimproc.vim', { 'build': { 'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak' } }
-  NeoBundle 'derekwyatt/vim-fswitch'
-  NeoBundle 'digitaltoad/vim-jade'
-  NeoBundle 'evanmiller/nginx-vim-syntax'
-  NeoBundle 'godlygeek/tabular'
-  NeoBundle 'gregsexton/gitv', { 'depends': [['tpope/vim-fugitive', { 'augroup': 'fugitive' }]] }
-  NeoBundle 'kchmck/vim-coffee-script'
-  NeoBundle 'kien/ctrlp.vim'
-  NeoBundle 'Lokaltog/powerline', { 'rtp': 'powerline/bindings/vim' }
-  NeoBundle 'Lokaltog/vim-easymotion'
-  NeoBundle 'maxbrunsfeld/vim-yankstack'
-  NeoBundle 'othree/html5.vim'
-  NeoBundle 'pangloss/vim-javascript'
-  NeoBundle 'Raimondi/delimitMate'
-  NeoBundle 'RelativeNumberCurrentWindow'
-  NeoBundle 'scrooloose/nerdcommenter'
-  NeoBundle 'scrooloose/syntastic'
-  NeoBundle 'Shougo/vimfiler', { 'depends': 'Shougo/unite.vim' }
-  NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
-  NeoBundle 'tpope/vim-markdown'
-  NeoBundle 'tpope/vim-repeat'
-  NeoBundle 'tpope/vim-surround'
-  NeoBundle 'tpope/vim-unimpaired'
-  NeoBundle 'Valloric/MatchTagAlways'
-  NeoBundle 'vim-ruby/vim-ruby'
 
   if (v:version > 703 || v:version == 703 && has('patch584')) && has('python') && (filereadable('/usr/lib/libclang.dylib') || filereadable('/Library/Developer/CommandLineTools/usr/lib/libclang.dylib') || filereadable('/usr/local/lib/libclang.so') || filereadable('/opt/local/lib/libclang.so') || filereadable('/usr/lib64/libclang.so') || filereadable('/usr/lib/libclang.so'))
-    NeoBundle 'Valloric/YouCompleteMe', { 'augroup': 'youcompleteme', 'build': { 'mac': './install.sh --clang-completer --system-clang', 'unix': './install.sh --clang-completer --system-clang' } }
+    Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'objc', 'python'], 'do': './install.sh --clang-completer --system-libclang' }
   endif
 
-  filetype plugin indent on
-
-  NeoBundleCheck
-  augroup AutoNeoBundle
-    autocmd!
-    autocmd VimEnter * call auto_neobundle#update_weekly()
-  augroup END
+  call plug#end()
 " }}}
 
 " basic config {{{
@@ -112,7 +97,7 @@
 
 " UI options {{{
   " highlight unwanted whitespace {{{
-    au ColorScheme * highlight ExtraWhitespace ctermbg=52 guibg=52 
+    au ColorScheme * highlight ExtraWhitespace ctermbg=52 guibg=52
     au BufWinEnter * let w:extra_whitespace=matchadd('ExtraWhitespace', '\s\+$', -1)
   " }}}
 
@@ -207,9 +192,17 @@
   set foldcolumn=0
 " }}}
 
+" vim-plug {{{
+  let g:plug_window = 'botright new'
+" }}}
+
 " secure modelines {{{
   set nomodeline
   let g:secure_modelines_verbose=0
+" }}}
+
+" vim-airline {{{
+  let g:airline_powerline_fonts = 1
 " }}}
 
 " tags {{{
@@ -238,10 +231,6 @@
 
 " vimfiler {{{
   let g:vimfiler_as_default_explorer = 1
-" }}}
-
-" easymotion {{{
-  let g:EasyMotion_leader_key = '<Leader>'
 " }}}
 
 " ConflictDetection/ConflictMotions {{{
