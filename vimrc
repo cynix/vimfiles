@@ -1,6 +1,7 @@
 " bootstrap {{{
   set nocompatible
 
+  let &runtimepath.=','.escape(fnamemodify(resolve(expand('<sfile>:p')), ':h'), '\,')
   call plug#begin('~/.vim/plugged')
 
   Plug 'altercation/vim-colors-solarized'
