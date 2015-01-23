@@ -28,6 +28,7 @@
   Plug 'Raimondi/delimitMate'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/syntastic'
+  Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive' " gitv
   Plug 'tpope/vim-markdown', { 'for': 'markdown' }
   Plug 'tpope/vim-repeat'
