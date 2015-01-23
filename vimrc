@@ -2,6 +2,11 @@
   set nocompatible
 
   let &runtimepath.=','.escape(fnamemodify(resolve(expand('<sfile>:p')), ':h'), '\,')
+
+  if empty(glob('~/.vim/plugged'))
+    autocmd VimEnter * PlugInstall
+  endif
+
   call plug#begin('~/.vim/plugged')
 
   Plug 'altercation/vim-colors-solarized'
