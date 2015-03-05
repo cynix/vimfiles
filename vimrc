@@ -148,6 +148,12 @@
     set relativenumber
   endif
 
+  " handle mouse codes correctly inside screen/tmux {{{
+    if &term =~ '^screen'
+      set ttymouse=xterm2
+    endif
+  " }}}
+
   " scrolling {{{
     set scrolloff=5
     set sidescrolloff=5
