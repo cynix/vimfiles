@@ -46,8 +46,8 @@
     Plug 'cynix/numbers.vim'
   endif
 
-  if (v:version > 703 || v:version == 703 && has('patch584')) && has('python') && (filereadable('/usr/lib/libclang.dylib') || filereadable('/Library/Developer/CommandLineTools/usr/lib/libclang.dylib') || filereadable('/usr/local/lib/libclang.so') || filereadable('/opt/local/lib/libclang.so') || filereadable('/usr/lib64/libclang.so') || filereadable('/usr/lib/libclang.so'))
-    Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'javascript', 'objc', 'python', 'ruby'], 'do': './install.sh --clang-completer --system-libclang' }
+  if (v:version > 703 || v:version == 703 && has('patch584')) && has('python') && (filereadable('/usr/lib/libclang.dylib') || filereadable('/Library/Developer/CommandLineTools/usr/lib/libclang.dylib') || filereadable('/usr/local/lib/libclang.so') || filereadable('/opt/local/lib/libclang.so') || filereadable('/usr/lib64/libclang.so') || filereadable('/usr/lib/libclang.so') || filereadable('/usr/lib64/llvm/libclang.so'))
+    Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'javascript', 'objc', 'python', 'ruby'], 'do': './install.py --clang-completer --system-libclang' }
   endif
 
   call plug#end()
