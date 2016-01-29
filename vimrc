@@ -10,7 +10,6 @@
   call plug#begin('~/.vim/plugged')
 
   Plug 'altercation/vim-colors-solarized'
-  Plug 'bling/vim-airline'
   Plug 'chrisbra/SudoEdit.vim'
   Plug 'ciaranm/securemodelines'
   Plug 'derekwyatt/vim-fswitch'
@@ -35,6 +34,8 @@
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'Valloric/MatchTagAlways'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'vim-scripts/ConflictDetection'
   Plug 'vim-scripts/ConflictMotions'
