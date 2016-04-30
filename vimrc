@@ -110,7 +110,7 @@
 
 " UI options {{{
   " highlight unwanted whitespace {{{
-    au ColorScheme * highlight ExtraWhitespace ctermbg=52 guibg=52
+    au ColorScheme * highlight ExtraWhitespace ctermbg=52 guibg=#5f0000
     au BufWinEnter * let w:extra_whitespace=matchadd('ExtraWhitespace', '\s\+$', -1)
   " }}}
 
