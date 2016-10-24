@@ -1,4 +1,5 @@
 " bootstrap {{{
+  let g:skip_defaults_vim=1
   set nocompatible
 
   let &runtimepath.=','.escape(fnamemodify(resolve(expand('<sfile>:p')), ':h'), '\,')
