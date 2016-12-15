@@ -57,6 +57,13 @@
     Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'javascript', 'objc', 'python', 'ruby'], 'do': install_ycm_command }
   endif
 
+  if filereadable(expand('$VIM/plug.local'))
+    source $VIM/plug.local
+  endif
+  if expand('~/.vim/plug.local') != expand('$VIM/plug.local') && filereadable(expand('~/.vim/plug.local'))
+    source ~/.vim/plug.local
+  endif
+
   call plug#end()
 " }}}
 
